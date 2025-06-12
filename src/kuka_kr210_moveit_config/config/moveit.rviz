@@ -7,12 +7,15 @@ Panels:
         - /Global Options1
         - /MotionPlanning1
         - /MotionPlanning1/Scene Geometry1
+        - /MotionPlanning1/Planned Path1
         - /Axes1
         - /RobotModel1
+        - /RobotModel1/Links1
+        - /RobotModel1/Links1/tool01
         - /TF1
         - /TF1/Frames1
       Splitter Ratio: 0.5
-    Tree Height: 170
+    Tree Height: 245
   - Class: rviz_common/Help
     Name: Help
   - Class: rviz_common/Views
@@ -293,7 +296,7 @@ Visualization Manager:
         tool0:
           Alpha: 1
           Show Axes: false
-          Show Trail: false
+          Show Trail: true
           Value: true
       Mass Properties:
         Inertia: false
@@ -343,7 +346,7 @@ Visualization Manager:
         kuka_footprint:
           Value: false
         tool0:
-          Value: false
+          Value: true
         world:
           Value: true
       Marker Scale: 1
@@ -401,7 +404,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 4.514664173126221
+      Distance: 5.056424140930176
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -416,15 +419,15 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.22479744255542755
+      Pitch: 0.4447973668575287
       Target Frame: kuka_footprint
       Value: Orbit (rviz_default_plugins)
-      Yaw: 1.2352204322814941
+      Yaw: 2.5052244663238525
     Saved: ~
 Window Geometry:
   Displays:
     collapsed: false
-  Height: 1010
+  Height: 1288
   Help:
     collapsed: false
   Hide Left Dock: false
@@ -433,9 +436,9 @@ Window Geometry:
     collapsed: false
   MotionPlanning - Trajectory Slider:
     collapsed: false
-  QMainWindow State: 000000ff00000000fd00000001000000000000024e0000038afc0200000005fb00000044004d006f00740069006f006e0050006c0061006e006e0069006e00670020002d0020005400720061006a006500630074006f0072007900200053006c00690064006500720000000000ffffffff0000001900000019fb000000100044006900730070006c0061007900730100000047000000f1000000f100fffffffb0000001c004d006f00740069006f006e0050006c0061006e006e0069006e0067010000013f000001c9000001bd00fffffffb0000000800480065006c0070000000029a0000006e0000008400fffffffb0000000a00560069006500770073010000030f000000c2000000c200ffffff0000035c0000038a00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd00000001000000000000024e000004a0fc0200000005fb00000044004d006f00740069006f006e0050006c0061006e006e0069006e00670020002d0020005400720061006a006500630074006f0072007900200053006c00690064006500720000000000ffffffff0000004d00fffffffb000000100044006900730070006c00610079007301000000470000013c000000f100fffffffb0000001c004d006f00740069006f006e0050006c0061006e006e0069006e0067010000018a00000258000001bd00fffffffb0000000800480065006c0070000000029a0000006e0000008400fffffffb0000000a0056006900650077007301000003e9000000fe000000c200ffffff00000763000004a000000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Views:
     collapsed: false
-  Width: 1457
-  X: 817
-  Y: 161
+  Width: 2488
+  X: 70
+  Y: 34

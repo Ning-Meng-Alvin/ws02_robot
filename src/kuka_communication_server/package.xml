@@ -23,6 +23,13 @@
   <exec_depend>moveit_ros_planning_interface</exec_depend>
   <exec_depend>geometry_msgs</exec_depend>
   <exec_depend>kuka_interfaces</exec_depend>
+  <exec_depend>tf2_geometry_msgs</exec_depend>
+  <exec_depend>Eigen3</exec_depend>
+
+    <!-- 系统库依赖 -->
+  <depend>boost_filesystem</depend>
+  <depend>boost_system</depend>
+
 
   <export>
     <build_type>ament_cmake</build_type>

@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>kuka_communication_client</name>
+  <version>0.1.0</version>
+  <description>Action Client for checking robot poses</description>
+  <maintainer email="pei_liu0913@163.com">liyq</maintainer>
+  <license>MIT</license>
+
+  <!-- 构建系统 -->
+  <buildtool_depend>ament_python</buildtool_depend>
+
+  <!-- 运行依赖 -->
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>geometry_msgs</exec_depend>
+  <exec_depend>kuka_interfaces</exec_depend> 
+
+  <!-- 如果使用 action -->
+  <exec_depend>action_msgs</exec_depend>
+
+  <!-- Python 模块支持 -->
+  <member_of_group>rosidl_interface_packages</member_of_group>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

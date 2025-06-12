@@ -1,0 +1,465 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot name="KR210_R2700_extra">
+  
+  <!-- <link name="kr210_footprint"/>
+
+  <joint name="footprint_to_base" type="fixed">
+    <parent link="kr210_footprint"/>
+    <child link="kr210_base_link"/>
+    <origin xyz="0 0 0" rpy="-1.5708 0 0"/>
+  </joint> -->
+
+  
+
+  <link name="kuka_footprint"/>
+
+  <!-- 固定虚拟关节连接 footprint 到 base_link -->
+  <joint name="virtual_joint" type="fixed">
+    <parent link="kuka_footprint"/>
+    <child link="kr210_base_link"/>
+    <origin xyz="0 0 0" rpy="-1.5708 0 0"/>
+  </joint>
+  
+  <link
+    name="kr210_base_link">
+    <inertial>
+      <origin
+        xyz="-0.12329 0.00029575 0.11391"
+        rpy="0 0 0" />
+      <mass
+        value="88.289" />
+      <inertia
+        ixx="3.3711"
+        ixy="0.0097149"
+        ixz="0.52176"
+        iyy="6.1214"
+        iyz="-0.0046973"
+        izz="8.3283" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://display_kuka_kr210_rviz/meshes/kr210_base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://display_kuka_kr210_rviz/meshes/kr210_base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="kr210_link1">
+    <inertial>
+      <origin
+        xyz="0.00419091496574721 0.0191853086394971 0.269190520123386"
+        rpy="0 0 0" />
+      <mass
+        value="88.8722060869493" />
+      <inertia
+        ixx="3.18724848948384"
+        ixy="-0.633517464496378"
+        ixz="-0.511333889351166"
+        iyy="6.33845721966804"
+        iyz="-0.261168069619429"
+        izz="5.2880946733646" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://display_kuka_kr210_rviz/meshes/kr210_link1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://display_kuka_kr210_rviz/meshes/kr210_link1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint1"
+    type="revolute">
+    <origin
+      xyz="0 -0.2156 0"
+      rpy="1.5708 0 0" />
+    <parent
+      link="kr210_base_link" />
+    <child
+      link="kr210_link1" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="kr210_link2">
+    <inertial>
+      <origin
+        xyz="0.0027978 -0.23683 0.43208"
+        rpy="0 0 0" />
+      <mass
+        value="96.547" />
+      <inertia
+        ixx="16.136"
+        ixy="-0.0056688"
+        ixz="-0.014745"
+        iyy="15.899"
+        iyz="1.7698"
+        izz="1.7843" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://display_kuka_kr210_rviz/meshes/kr210_link2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://display_kuka_kr210_rviz/meshes/kr210_link2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint2"
+    type="revolute">
+    <origin
+      xyz="0.35 0 0.4594"
+      rpy="0 0 0" />
+    <parent
+      link="kr210_link1" />
+    <child
+      link="kr210_link2" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="kr210_link3">
+    <inertial>
+      <origin
+        xyz="0.18165 0.054243 0.066543"
+        rpy="0 0 0" />
+      <mass
+        value="119.14" />
+      <inertia
+        ixx="4.3385"
+        ixy="0.79293"
+        ixz="1.4621"
+        iyy="15.461"
+        iyz="-1.1248"
+        izz="14.851" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://display_kuka_kr210_rviz/meshes/kr210_link3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://display_kuka_kr210_rviz/meshes/kr210_link3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint3"
+    type="revolute">
+    <origin
+      xyz="0 0 1.15"
+      rpy="0 0 0" />
+    <parent
+      link="kr210_link2" />
+    <child
+      link="kr210_link3" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="kr210_link4">
+    <inertial>
+      <origin
+        xyz="0.132079953309161 0.00135411558462281 -6.25620506955471E-06"
+        rpy="0 0 0" />
+      <mass
+        value="3.49282768845098" />
+      <inertia
+        ixx="0.00854408204343117"
+        ixy="-0.000802619889318926"
+        ixz="-1.17218435695788E-06"
+        iyy="0.0373645445404462"
+        iyz="-9.45475013202612E-08"
+        izz="0.0368830471592641" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://display_kuka_kr210_rviz/meshes/kr210_link4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://display_kuka_kr210_rviz/meshes/kr210_link4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint4"
+    type="revolute">
+    <origin
+      xyz="0.9445 0 -0.041"
+      rpy="0 0 0" />
+    <parent
+      link="kr210_link3" />
+    <child
+      link="kr210_link4" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="kr210_link5">
+    <inertial>
+      <origin
+        xyz="0.046703 0.024001 -5.0913E-05"
+        rpy="0 0 0" />
+      <mass
+        value="8.4727" />
+      <inertia
+        ixx="0.082604"
+        ixy="0.013295"
+        ixz="3.8669E-05"
+        iyy="0.068368"
+        iyz="3.0301E-05"
+        izz="0.11537" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://display_kuka_kr210_rviz/meshes/kr210_link5.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://display_kuka_kr210_rviz/meshes/kr210_link5.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint5"
+    type="revolute">
+    <origin
+      xyz="0.2555 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="kr210_link4" />
+    <child
+      link="kr210_link5" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="kr210_link6">
+    <inertial>
+      <origin
+        xyz="0.070718 0.011372 0.15736"
+        rpy="0 0 0" />
+      <mass
+        value="1.4067" />
+      <inertia
+        ixx="0.02282"
+        ixy="-6.2607E-05"
+        ixz="0.00010038"
+        iyy="0.020338"
+        iyz="-0.00066642"
+        izz="0.0037701" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://display_kuka_kr210_rviz/meshes/kr210_link6.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://display_kuka_kr210_rviz/meshes/kr210_link6.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint6"
+    type="revolute">
+    <origin
+      xyz="0.13171 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="kr210_link5" />
+    <child
+      link="kr210_link6" />
+    <axis
+      xyz="-1 0 0" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="100"
+      velocity="1" />
+  
+  </joint>
+    <link name="tool0">
+    <visual>
+      <origin xyz="-0.15 0 0" rpy="0 1.5708 0"/>
+      <geometry>
+        <cylinder radius="0.1" length="0.3"/> 
+      </geometry>
+      <material name="gray">
+        <color rgba="0.5 0.5 0.5 1"/>
+      </material>
+    </visual>
+    <collision>
+    <origin xyz="-0.15 0 0" rpy="0 1.5708 0"/>
+    <geometry>
+      <cylinder radius="0.1" length="0.3"/>
+    </geometry>
+  </collision>
+  </link>
+
+  <joint name="joint_tool0" type="fixed">
+    <parent link="kr210_link6"/>
+    <child link="tool0"/>
+    <origin xyz="0.4 0 0" rpy="0 0 0"/>
+  </joint>
+  
+
+<!-- Camera Mount -->
+<link name="camera_position">
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <!-- 小方块，边长 0.05 m -->
+      <box size="0.2 0.1 0.1"/>
+    </geometry>
+    <material name="gray">
+      <color rgba="0.5 0.5 0.5 1"/>
+    </material>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <box size="0.2 0.1 0.1"/>
+    </geometry>
+  </collision>
+</link>
+
+<!-- 固定关节，将 camera_position 挂到 kr210_link6 上 -->
+<joint name="joint_camera_position" type="fixed">
+  <parent link="kr210_link6"/>
+  <child link="camera_position"/>
+ 
+  <origin xyz="0.0 -0.1732 -0.1" rpy="-1.5708 -1.0472 -1.5708"/>
+</joint>
+
+</robot>

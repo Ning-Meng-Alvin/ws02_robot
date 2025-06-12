@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>kuka_communication_server</name>
+  <version>0.1.0</version>
+  <description>Action server for checking pose reachability using MoveIt</description>
+
+  <maintainer email="pei_liu0913@163.com">liyq</maintainer>
+  <license>MIT</license>
+
+  <!-- 构建工具 -->
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <!-- 构建时依赖 -->
+  <build_depend>rclcpp</build_depend>
+  <build_depend>rclcpp_action</build_depend>
+  <build_depend>moveit_ros_planning_interface</build_depend>
+  <build_depend>geometry_msgs</build_depend>
+  <build_depend>kuka_interfaces</build_depend>
+
+  <!-- 运行时依赖 -->
+  <exec_depend>rclcpp</exec_depend>
+  <exec_depend>rclcpp_action</exec_depend>
+  <exec_depend>moveit_ros_planning_interface</exec_depend>
+  <exec_depend>geometry_msgs</exec_depend>
+  <exec_depend>kuka_interfaces</exec_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

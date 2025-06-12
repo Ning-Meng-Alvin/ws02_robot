@@ -1,0 +1,25 @@
+moveit_setup_assistant_config:
+  urdf:
+    package: display_kuka_kr210_rviz
+    relative_path: urdf/KR210_R2700_extra_modified.SLDASM.urdf
+  srdf:
+    relative_path: config/KR210_R2700_extra.srdf
+  package_settings:
+    author_name: Pei Liu
+    author_email: pei_liu0913@163.com
+    generated_timestamp: 1749589868
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity
+  modified_urdf:
+    xacros:
+      - control_xacro
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity

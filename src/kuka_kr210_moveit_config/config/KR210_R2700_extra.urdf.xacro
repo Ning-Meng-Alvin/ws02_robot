@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="KR210_R2700_extra">
+    <xacro:arg name="initial_positions_file" default="initial_positions.yaml" />
+
+    <!-- Import KR210_R2700_extra urdf file -->
+    <xacro:include filename="$(find display_kuka_kr210_rviz)/urdf/KR210_R2700_extra_modified.SLDASM.urdf" />
+
+    <!-- Import control_xacro -->
+    <xacro:include filename="KR210_R2700_extra.ros2_control.xacro" />
+
+
+    <xacro:KR210_R2700_extra_ros2_control name="FakeSystem" initial_positions_file="$(arg initial_positions_file)"/>
+
+</robot>

@@ -1,0 +1,12 @@
+# Goal
+string end_effector
+geometry_msgs/PoseStamped[] poses
+bool execute
+---
+# Result
+bool[] success
+float32 overall_success_rate
+---
+# Feedback
+uint32 current_index
+uint32 total

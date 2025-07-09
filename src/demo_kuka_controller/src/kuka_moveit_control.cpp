@@ -38,35 +38,75 @@ int main(int argc, char** argv)
 
     RCLCPP_INFO(node->get_logger(), "Using end effector: %s", end_effector.c_str());
 
-    // 构造 world 坐标下目标 pose
-    geometry_msgs::msg::Pose target_pose;
-    target_pose.position.x = x;
-    target_pose.position.y = y;
-    target_pose.position.z = z;
+    // // 构造 world 坐标下目标 pose
+    // geometry_msgs::msg::Pose target_pose;
+    // target_pose.position.x = x;
+    // target_pose.position.y = y;
+    // target_pose.position.z = z;
 
-    target_pose.orientation.x = qx;
-    target_pose.orientation.y = qy;
-    target_pose.orientation.z = qz;
-    target_pose.orientation.w = qw;
+    // target_pose.orientation.x = qx;
+    // target_pose.orientation.y = qy;
+    // target_pose.orientation.z = qz;
+    // target_pose.orientation.w = qw;
 
-    // 坐标系变换 world → footprint
+    // // 坐标系变换 world → footprint
+    // Eigen::Vector3d T(1.0, 0.0, 0.0);
+    // Eigen::Matrix3d R;
+    // R << -1, 0, 0,
+    //       0, -1, 0,
+    //       0,  0, 1;
+
+    // Eigen::Vector3d p_world(x, y, z);
+    // Eigen::Vector3d p_fp = R.transpose() * (p_world - T);
+    // target_pose.position.x = p_fp(0);
+    // target_pose.position.y = p_fp(1);
+    // target_pose.position.z = p_fp(2);
+
+    // tf2::Quaternion q_input(qx, qy, qz, qw);
+    // tf2::Quaternion q_tf;
+    // q_tf.setRPY(0, 0, M_PI);  // world → footprint 的旋转，不知道为啥改为四元数不用修正了
+    // tf2::Quaternion q_fp = q_tf.inverse() * q_input;
+    // target_pose.orientation = tf2::toMsg(q_fp);
+    // 构造输入 Pose（world 坐标系下）
+    geometry_msgs::msg::Pose target_pose_world;
+    target_pose_world.position.x = x;
+    target_pose_world.position.y = y;
+    target_pose_world.position.z = z;
+    target_pose_world.orientation.x = qx;
+    target_pose_world.orientation.y = qy;
+    target_pose_world.orientation.z = qz;
+    target_pose_world.orientation.w = qw;
+
+    // ====== 坐标系变换：world → kuka_footprint ======
+
+    // 1. 平移变换（R^T * (p - T)）
     Eigen::Vector3d T(1.0, 0.0, 0.0);
     Eigen::Matrix3d R;
     R << -1, 0, 0,
-          0, -1, 0,
-          0,  0, 1;
+        0, -1, 0,
+        0,  0, 1;
 
     Eigen::Vector3d p_world(x, y, z);
-    Eigen::Vector3d p_fp = R.transpose() * (p_world - T);
+    Eigen::Vector3d p_fp = R.transpose() * (p_world - T);  // 坐标变换
+
+    // 2. 姿态变换：q_fp = q_tf⁻¹ * q_input
+    tf2::Quaternion q_input(qx, qy, qz, qw);
+    q_input.normalize();  
+
+    tf2::Quaternion q_tf;
+    q_tf.setRPY(0, 0, M_PI);  // world → footprint 的旋转
+    q_tf.normalize();
+
+    tf2::Quaternion q_fp = q_tf.inverse() * q_input;
+    q_fp.normalize();
+
+    // ====== 赋值目标 Pose（footprint 坐标系下） ======
+    geometry_msgs::msg::Pose target_pose;
     target_pose.position.x = p_fp(0);
     target_pose.position.y = p_fp(1);
     target_pose.position.z = p_fp(2);
-
-    tf2::Quaternion q_input(qx, qy, qz, qw);
-    tf2::Quaternion q_tf;
-    q_tf.setRPY(0, 0, M_PI);  // world → footprint 的旋转
-    tf2::Quaternion q_fp = q_tf.inverse() * q_input;
     target_pose.orientation = tf2::toMsg(q_fp);
+
 
     RCLCPP_INFO(node->get_logger(), "Pose in kuka_footprint: x=%.3f y=%.3f z=%.3f",
                 target_pose.position.x, target_pose.position.y, target_pose.position.z);

@@ -33,6 +33,20 @@ def generate_launch_description():
         output="screen"
     )
 
+    cartesian_action_node = Node(
+        package="kuka_communication_server",
+        executable="cartesian_follow_action_server",
+        name="cartesian_follow_action_server_node",
+        output="screen"
+    )
+
+    pose_check_action_node = Node(
+        package="kuka_communication_server",
+        executable="pose_check_action_server",
+        name="pose_check_action_server_node",
+        output="screen"
+    )
+
     return LaunchDescription([
         tf_init_node,
         TimerAction(
@@ -45,7 +59,10 @@ def generate_launch_description():
                         tf_republish_node,
                         TimerAction(
                             period=2.0,
-                            actions=[collision_node]
+                            actions=[
+                                collision_node,
+                                cartesian_action_node,
+                                pose_check_action_node]
                         )
                     ]
                 )

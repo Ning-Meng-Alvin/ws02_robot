@@ -2,7 +2,7 @@
 <package format="3">
   <name>kuka_interfaces</name>
   <version>0.1.0</version>
-  <description>Custom action interfaces for KUKA motion control</description>
+  <description>Custom action and service interfaces for KUKA motion control</description>
 
   <maintainer email="pei_liu0913@163.com">liyq</maintainer>
   <license>MIT</license>
@@ -14,12 +14,15 @@
   <build_depend>rosidl_default_generators</build_depend>
   <build_depend>geometry_msgs</build_depend>
   <build_depend>action_msgs</build_depend>
+  <build_depend>builtin_interfaces</build_depend>
 
-  <!-- 执行与导出依赖 -->
+  <!-- 运行时依赖 -->
   <exec_depend>rosidl_default_runtime</exec_depend>
   <exec_depend>geometry_msgs</exec_depend>
   <exec_depend>action_msgs</exec_depend>
+  <exec_depend>builtin_interfaces</exec_depend>
 
+  <!-- 导出依赖 -->
   <build_export_depend>rosidl_default_runtime</build_export_depend>
   <member_of_group>rosidl_interface_packages</member_of_group>
 

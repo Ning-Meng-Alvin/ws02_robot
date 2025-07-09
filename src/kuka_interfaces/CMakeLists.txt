@@ -30,6 +30,7 @@ project(kuka_interfaces)
 # 构建工具
 find_package(ament_cmake REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
+find_package(builtin_interfaces REQUIRED)
 
 # 消息依赖
 find_package(geometry_msgs REQUIRED)
@@ -39,11 +40,14 @@ find_package(action_msgs REQUIRED)
 set(MSG_DEPENDENCIES
   geometry_msgs
   action_msgs
+  builtin_interfaces
 )
 
 rosidl_generate_interfaces(${PROJECT_NAME}
   "action/CheckPose.action"
   "action/CartesianFollow.action"
+  "srv/ExecuteGoal.srv"
+  "srv/UpdateCollisionObjectPose.srv"
   DEPENDENCIES ${MSG_DEPENDENCIES}
 )
 

@@ -1,15 +1,17 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>fake_tcp_CartesianFollow</name>
+  <name>fake_tcp_scene_manager</name>
   <version>0.0.0</version>
-  <description>TODO: Package description</description>
+  <description>Python client to update collision objects via service</description>
   <maintainer email="pei_liu0913@163.com">liyq</maintainer>
-  <license>TODO: License declaration</license>
+  <license>MIT</license>
 
   <depend>rclpy</depend>
-  <depend>geometry_msgs</depend>
   <depend>std_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>kuka_interfaces</depend>
+  <depend>moveit_msgs</depend>
 
   <test_depend>ament_copyright</test_depend>
   <test_depend>ament_flake8</test_depend>
@@ -20,3 +22,4 @@
     <build_type>ament_python</build_type>
   </export>
 </package>
+

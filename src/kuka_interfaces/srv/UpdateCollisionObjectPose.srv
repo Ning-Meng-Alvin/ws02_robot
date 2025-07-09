@@ -1,0 +1,16 @@
+string collision_object_name
+string shape_type       # "mesh", "box", "cylinder", "sphere"；若 delete_only==true 则无视
+string mesh_name        # 仅在 shape_type == "mesh" 时有效
+float64 dim_x           # box: x, cylinder: height, sphere: radius
+float64 dim_y           # box: y, cylinder: radius
+float64 dim_z           # box: z
+float64 x
+float64 y
+float64 z
+float64 qx
+float64 qy
+float64 qz
+float64 qw
+bool delete_only        # true 时只删除该碰撞体
+---
+bool success

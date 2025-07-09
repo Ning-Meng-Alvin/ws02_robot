@@ -17,9 +17,9 @@ def rpy_from_fixed_xyz(x_proj, y_proj, z_proj):
     return rpy_rad, rpy_deg
 
 # 示例输入：B 系三个轴在 A 系下的投影向量
-x_proj = np.array([0.0, -1/2, np.sqrt(3) / 2])
-y_proj = np.array([0.0 ,-np.sqrt(3) / 2, -1/2])
-z_proj = np.array([1.0, 0.0, 0.0])
+x_proj = np.array([-1.0,0.0, 0.0])
+y_proj = np.array([0.0 ,-1.0, 0.0])
+z_proj = np.array([0.0,0.0, 1.0])
 
 # 计算外旋 RPY
 rpy_rad, rpy_deg = rpy_from_fixed_xyz(x_proj, y_proj, z_proj)

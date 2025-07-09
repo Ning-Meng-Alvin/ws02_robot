@@ -1,6 +1,6 @@
 from setuptools import find_packages, setup
 
-package_name = 'fake_tcp_CartesianFollow'
+package_name = 'infinite_path_trail'
 
 setup(
     name=package_name,
@@ -20,7 +20,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'follow_node = fake_tcp_CartesianFollow.follow_node:main',
+            'infinite_path_publisher = infinite_path_trail.infinite_path_publisher:main',
         ],
     },
 )
